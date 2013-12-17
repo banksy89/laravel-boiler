@@ -11,11 +11,25 @@
 |
 */
 
-/*
-Route::get('/', function()
-{
-	return View::make('hello');
-});
-*/
-
 Route::get('/', 'HomeController@getIndex');
+
+// Contain all admin routes within it's own group
+// using the before -> auth - within filters, have set that before loading route 
+// to run the auto function
+// This auth can be replaced or added with what ever function we want
+Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
+{
+	Route::get('/', function()
+	{
+		
+	});
+
+});
+
+// Setup the 404 error if route not found 
+App::missing(function($exception)
+{
+	// shows an error page (app/views/error.blade.php)
+	// returns a page not found error
+	return Response::view('error', array(), 404);
+});
