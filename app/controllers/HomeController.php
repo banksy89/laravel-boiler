@@ -30,10 +30,16 @@ class HomeController extends BaseController {
 		$output = $user->save();
 		*/
 
+		echo (string)isset($_POST);
+
+		$input = Input::all();
+
+		print_r ( $input);
+
 		$this->addStyle('banan');
 		$this->addTag('title', "hello");
 		
-		return $this->render();
+		return $this->render(null, true);
 	}
 
 }

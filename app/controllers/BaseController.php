@@ -79,7 +79,7 @@ class BaseController extends Controller {
      * 
      * @return view
      */
-    protected function render($view="")
+    protected function render($view="", $blade = false)
     {
     	if ($view == "") {
     		$url = str_replace(Request::root(), "", Request::url());
@@ -92,9 +92,9 @@ class BaseController extends Controller {
     		}
     	}
 
-    	$this->addTag('view_to_load', base_path().'/app/views/'.$view.'.php');
+        $_view = View::make('base-view', $this->_tags)->nest('view_to_load', $view, $this->_tags);
 
-    	return View::make('base-view', $this->_tags);
+        return $_view;
     }
 
 	/**

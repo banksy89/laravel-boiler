@@ -28,7 +28,7 @@
         
         <div class="container content grid">
             
-            <?php include($view_to_load); ?>
+            <?php echo $view_to_load; ?>
             
         </div>
     
@@ -37,7 +37,7 @@
 	var site_path = "<?php echo $root; ?>/"; 
 </script>
 <?php if ( !!$script ): ?>
-    <script data-main="<?php echo $root; ?>/assets/scripts/<?php echo $script; ?>" src="<?php echo $root; ?>/assets/scripts/require.min.js"></script>
+    <script data-main="<?php echo $root; ?>/assets/scripts/<?php echo App::environment(); ?>/<?php echo $script; ?>" src="<?php echo $root; ?>/assets/scripts/require.min.js"></script>
 <?php endif; ?>
 </body>
 </html>
