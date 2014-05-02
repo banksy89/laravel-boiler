@@ -1,0 +1,84 @@
+.overlay {
+	background: url("#{$image-path}bg-transparent.png") 0 0 repeat;
+	bottom: 0;
+	//display: none;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1000;
+}
+
+.overlay-container {
+	background: #FFF;
+	border: 1px solid $is-border-colour;
+	height: 150px;
+	left: 50%;
+	letter-spacing: normal;
+	line-height: 150px;
+	margin-left: -150px;
+	margin-top: -75px;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	width: 300px;
+
+	@include border-radius(0.375em);
+	@include box-shadow(1px 2px 1px $is-bxshadow-colour);
+}
+
+.overlay-container--cropper {
+	height: 550px;
+	line-height: 550px;
+	margin-left: -275px;
+	margin-top: -275px;
+	width: 550px;
+
+	img {
+		vertical-align: middle;
+	}
+}
+
+.overlay-content {
+	display: inline-block;
+	line-height: normal;
+	padding: 0 2.5em;
+	vertical-align: middle;
+
+	p {
+		color: $base-font-colour;
+		font-size: 1.25em;
+		margin: 0 0 0.25em;
+	}
+}
+
+.overlay__close {
+	background: $brand-colour;
+	border: 2px solid #FFD400;
+	height: 32px;
+	line-height: 30px;
+	position: absolute;
+	right: -16px;
+	top: -16px;
+	width: 32px;
+
+	@include border-radius(50%);
+	@include transition;
+
+	&:hover,
+	&:focus {
+		background: darken($brand-colour, 15%);
+	}
+
+	a {
+		color: #FFD400;
+		display: block;
+		text-decoration: none;
+	}
+}
+
+@include firefox() {
+	.overlay__close {
+		line-height: 28px;
+	}
+}

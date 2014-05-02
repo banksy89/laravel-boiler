@@ -12,30 +12,43 @@
 */
 
 Route::resource('users', 'UserController');
-Route::resource('index', 'HomeController');
 
+Route::get('/', 'HomeController@getIndex');
 
-// Contain all admin routes within it's own group
-// using the before -> auth - within filters, have set that before loading route 
-// to run the auto function
-// This auth can be replaced or added with what ever function we want
-
-Route::get('/admin/login', function()
-{
-	return 'hi';
-});
-
-Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
-{
-	Route::get('/', function()
-	{
-		
-	});
-});
-
-// Setup the 404 error if route not found 
 App::missing(function($exception)
 {
 	// returns a page not found error
 	return Response::view('404-error', array(), 404);
 });
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+|
+| Admin routes are seperated, and also grouped with a filter for admin auth
+| so access to any route outside of the login can not be accessed without
+| authentication
+|
+*/
+
+Route::get('/admin/login', 'AdminHomeController@index');
+Route::post('/admin/login/login', 'AdminLoginController@loginAction');
+Route::post('/admin/login/forgotten', 'AdminLoginController@forgottenPasswordAction');
+
+Route::group(array('prefix' => 'admin', 'before' => 'admin_auth'), function()
+{
+	Route::get('/', function()
+	{
+		echo 'asdasd';
+	});
+
+	Route::get('/dashboard', 'AdminHomeController@dashboard');
+
+	Route::get('/listing/{table}', 'AdminListingController@table');
+	Route::get('/listing/t/{table}', 'AdminListingController@tabbed');
+
+	Route::post('/ajax/delete', 'AdminAjaxController@delete');
+	Route::post('/ajax/listing', 'AdminAjaxController@listing');
+});
+

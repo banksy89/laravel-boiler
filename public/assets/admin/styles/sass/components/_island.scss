@@ -1,0 +1,103 @@
+/*
+
+ISLAND
+------
+
+	<div class="island">
+		<p class="island__title">Content</p>
+		<div class="island-content">
+			<p>Hello world</p>
+		</div>
+	</div>
+
+*/
+
+.island {
+	border: 1px solid $is-border-colour;
+	margin-top: 1.25em;
+	overflow: hidden;
+
+	@include border-radius(0.375em);
+	@include box-shadow(1px 2px 1px $is-bxshadow-colour);
+
+	@include bp(desktop) {
+		margin-top: 2em;
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+	/*
+	p {
+		margin: 0;
+
+		@include bp(desktop) {
+			margin-bottom: 8px;
+		}
+	}
+	*/
+}
+
+.island__title {
+	background: $is-title-bg;
+	border-bottom: 1px solid $is-border-colour;
+	color: $is-title-colour;
+	font-size: 1.125em;
+	font-weight: normal;
+	letter-spacing: 0.03rem;
+	margin: 0;
+	padding: 0.5em;
+
+	@include border-radius(0.25em 0.25em 0 0);
+
+	@include bp(desktop) {
+		padding: 0.5em 1em;
+	}
+}
+
+.island__filter {
+	line-height: 32px;
+	overflow: hidden;
+
+	@include bp(desktop) {
+		margin-bottom: 0 !important;
+	}
+
+	span {
+		display: block;
+		margin-bottom: 0.25em;
+
+		@include bp(tablet) {
+			display: inline-block;
+			margin-bottom: 0;
+		}
+	}
+
+	.btn {
+		letter-spacing: normal;
+		text-transform: initial;
+	}
+
+	.btn--filter {
+		float: left;
+		//margin-top: 0.5em;
+
+		@include bp(tablet) {
+			float: right;
+			margin-right: 1em;
+			margin-top: 0;
+		}
+	}
+
+	.btn--add {
+		float: right;
+	}
+}
+
+.island-content {
+	padding: 0.5em;
+
+	@include bp(desktop) {
+		padding: 1em;
+	}
+}

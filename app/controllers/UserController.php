@@ -24,7 +24,7 @@ class UserController extends \BaseController {
 	{
 		$user = new User();
 		//$user->email = Input::get('email');
-		//$user->password = sha1(Input::get('password'));
+		//$user->password = $password = Hash::make('secret');;
 
 		$output = $user->create(Input::all());
 

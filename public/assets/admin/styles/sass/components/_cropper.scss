@@ -1,0 +1,22 @@
+.cropper {
+	.btn {
+		margin-bottom: 1em;
+		margin-right: 1em;
+	}
+}
+
+.cropper-area {
+	border: 2px dashed darken(#3399FF, 5%);
+	cursor: move;
+	z-index: 1;
+}
+
+.draggable-area {
+	margin-bottom: 1em;
+	overflow: hidden;
+
+	img {
+		border: 2px solid $header-colour !important;
+		display: block !important;
+	}
+}

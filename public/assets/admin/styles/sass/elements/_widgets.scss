@@ -1,0 +1,96 @@
+/*
+
+WIDGETS
+-------
+
+*/
+
+.widgets {
+	letter-spacing: -0.32em;
+	text-align: center;
+}
+
+.widgets-dashboard {
+	background: $header-colour;
+	border-bottom: 3px solid darken($header-colour, 10%);
+	display: inline-block;
+	letter-spacing: normal;
+	margin: 0.5em 0;
+	padding: 1em;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+	z-index: 1;
+
+	@include transition;
+	@include border-radius(0.375em);
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:hover,
+	&:focus {
+		background: darken($header-colour, 10%);
+		border-bottom: 3px solid $header-colour;
+	}
+
+	@include bp(tablet) {
+		margin: 1em 0.5%;
+		min-height: 121px;
+		width: 48%
+	}
+
+	@include bp(desktop) {
+		width: 20%;
+	}
+
+	i {
+		color: #CCC;
+		font-size: 7em;
+		position: absolute;
+		right: 16px;
+		top: 12px;
+		z-index: 0;
+
+		transform:rotate(-15deg);
+		-ms-transform:rotate(-15deg); /* IE 9 */
+		-webkit-transform:rotate(-15deg); /* Opera, Chrome, and Safari */
+
+		@include opacity(0.15);
+	}
+}
+
+.widgets-dashboard__title,
+.widgets-dashboard__amount {
+	margin: 0;
+}
+
+.widgets-dashboard__amount {
+	color: #FFF;
+	font-size: 3em;
+}
+
+.widgets-dashboard__title {
+	color: #FFD400;
+	font-size: 1.25em;
+	position: relative;
+	text-transform: uppercase;
+	z-index: 1;
+}
+
+.widgets-dashboard--orders {
+	background: $nav-item5-bg;
+	border-bottom: 3px solid darken($nav-item5-bg, 10%);
+
+	&:hover,
+	&:focus {
+		background: darken($nav-item5-bg, 10%);
+		border-bottom: 3px solid $nav-item5-bg;
+	}
+
+	i {
+		@include opacity(0.25);
+	}
+}

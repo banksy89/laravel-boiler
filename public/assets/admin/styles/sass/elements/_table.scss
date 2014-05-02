@@ -1,0 +1,204 @@
+/*
+
+TABLE
+-----
+
+	<table cellpadding="0" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th width="5%">&nbsp;</th>
+				<th width="75%" class="title-info">Title</th>
+				<th width="10%">Date Created</th>
+				<th width="10%">&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="task-completed">
+				<td><input type="checkbox"></td>
+				<td class="title-info">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+				<td>05/02/2014</td>
+				<td>
+					<a href="" class="icon-edit"><i class="fa fa-pencil"></i></a>
+					<a href="" class="icon-delete"><i class="fa fa-trash-o"></i></a>
+				</td>
+			</tr>
+			<tr class="task-inprogress">
+				<td><input type="checkbox"></td>
+				<td class="title-info">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+				<td>05/02/2014</td>
+				<td>
+					<a href="" class="icon-edit"><i class="fa fa-pencil"></i></a>
+					<a href="" class="icon-delete"><i class="fa fa-trash-o"></i></a>
+				</td>
+			</tr>
+			<tr class="task-notcompleted">
+				<td><input type="checkbox"></td>
+				<td class="title-info">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+				<td>05/02/2014</td>
+				<td>
+					<a href="" class="icon-edit"><i class="fa fa-pencil"></i></a>
+					<a href="" class="icon-delete"><i class="fa fa-trash-o"></i></a>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td class="title-info">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+				<td>05/02/2014</td>
+				<td>
+					<a href="" class="icon-edit"><i class="fa fa-pencil"></i></a>
+					<a href="" class="icon-delete"><i class="fa fa-trash-o"></i></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+*/
+
+.grid__table {
+	width: 100%;
+}
+
+@include bp(mobile) {
+	.table, 
+	thead, 
+	tbody, 
+	th, 
+	td, 
+	tr { 
+		display: block; 
+	}
+	
+	thead tr {
+		left: -9999px;
+		position: absolute;
+		top: -9999px;
+	}
+	
+	tr { 
+		border: 1px solid #ccc;
+	}
+	
+	td { 
+		border: none;
+		border-bottom: 1px solid #ccc;
+		position: relative;
+		padding: 0.5em;
+		padding-left: 25%;
+	}
+
+	.task--completed {
+		border-left: 5px solid darken(#DFF0D8, 5%);
+	}
+
+	.task--inprogress {
+		border-left: 5px solid darken(#FCF8E3, 5%);
+	}
+
+	.task--notcompleted {
+		border-left: 5px solid darken(#F2DEDE, 5%);
+	}
+	
+	td:before { 
+		left: 8px;
+		padding-right: 10px;
+		position: absolute;
+		top: 8px;
+		white-space: nowrap;
+		width: 45%;
+	}
+
+	td:nth-of-type(1):before { 
+		content: '';
+	}
+
+	td:nth-of-type(2):before { 
+		content: 'Title:';
+	}
+
+	td:nth-of-type(3):before {
+		content: 'Date:';
+	}
+	td:nth-of-type(4):before { 
+		content: '';
+	}
+}
+
+
+@include bp(tablet) {
+	.table {
+		border-bottom: 1px solid #DEDEDD;
+		text-align: center;
+	}
+
+	.task--completed {
+		td:first-child {
+			border-left: 5px solid $completed-task;
+		}
+	}
+
+	.task--inprogress {
+		td:first-child {
+			border-left: 5px solid $inprogress-task;
+		}
+	}
+
+	.task--notcompleted {
+		td:first-child {
+			border-left: 5px solid $notcompleted-task;
+		}
+	}
+
+	th,
+	td {
+		padding: 0.5em;
+	}
+
+	td {
+		border-top: 1px solid #DEDEDD;
+		vertical-align: middle;
+
+		&:first-child {
+			border-left: 5px solid #FFF;
+		}
+	}
+
+	.table__title {
+		text-align: left;
+	}
+
+	.table__img {
+		text-align: left;
+		width: 90px !important;
+
+		img {
+			max-width: 75px;
+		}
+	}
+}
+
+[class*='table__icon-'] {
+	font-size: 1.125em;
+	margin: 0 0.25em;
+
+	@include transition;
+
+	@include bp(desktop) {
+		margin: 0 0.5em;
+	}
+}
+
+.table__icon-edit {
+	color: #666;
+
+	&:hover {
+		color: darken(#666, 10%);
+	}
+}
+
+.table__icon-delete {
+	color: $delete-btn-colour;
+
+	&:hover {
+		color: darken($delete-btn-colour, 10%);
+	}
+}

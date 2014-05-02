@@ -1,0 +1,105 @@
+/*
+
+ALERTS
+------
+
+*/
+
+.alert {
+	color: #FFF;
+	margin: 1em 0 !important;
+	overflow: hidden;
+	padding: 0.5em 2em 0.5em 0.5em;
+	position: relative;
+	vertical-align: middle;
+
+	&:first-child {
+		margin-top: 0 !important;
+	}
+
+	@include border-radius(0.25em);
+
+	i {
+		display: inline-block;
+		font-size: 1.5em;
+		margin-right: 0;
+		text-align: center;
+		vertical-align: middle;
+		width: 1.5em;
+	}
+}
+
+/*
+
+SUCCESS ALERT
+-------------
+
+	<p class="alert alert-success" id="js-success-close"><i class="fa fa-check-circle-o"></i> Congratulations, you have successfully uploaded to the website <i class="fa fa-times js-fade-close close-alert" data-close="success"></i></p>
+
+*/
+
+.alert--success {
+	background: $success-alert-colour;
+}
+
+/*
+
+WARNING ALERT
+-------------
+
+	<p class="alert alert-warning" id="js-warning-close"><i class="fa fa-exclamation-triangle"></i> Caution, you sure you want to delete this item <i class="fa fa-times js-fade-close close-alert" data-close="warning"></i></p>
+
+*/
+
+.alert--warning {
+	background: $warning-alert-colour;
+}
+
+/*
+
+ERROR ALERT
+-----------
+
+	<p class="alert alert-error" id="js-error-close"><i class="fa fa-exclamation"></i> Error, there was a problem uploading your changes to the website <i class="fa fa-times js-fade-close close-alert" data-close="error"></i></p>
+
+*/
+
+.alert--error {
+	background: $error-alert-colour;
+}
+
+/*
+
+INFO ALERT
+----------
+
+	<p class="alert alert-info" id="js-info-close"><i class="fa fa-info-circle"></i> Remember to choose an image to upload before saving <i class="fa fa-times js-fade-close close-alert" data-close="info"></i></p>
+
+*/
+
+.alert--info {
+	background: $info-alert-colour;
+}
+
+.alert__close {
+	cursor: pointer;
+	font-size: 1.25em;
+	margin-left: 0.25em;
+	margin-right: 0;
+	position: absolute;
+	right: 4px;
+	top: 4px;
+	width: auto;
+
+	@include transition;
+
+	&:hover {
+		color: darken(#FFF, 10%);
+	}
+
+	@include bp(tablet) {
+		margin-top: -11px;
+		right: 8px;
+		top: 50%;
+	}
+}

@@ -1,0 +1,87 @@
+/*
+
+FRAMEWORK = GRIDS 
+-----------------
+This is the base framework for our grid layout. 
+Please try not touch this file and change styles as this will affect how the framework will behave.
+
+If you need to change the way a sector is styled then add a class and style that class.
+
+*/
+
+@if ($grid) == true {
+	.grid {
+		letter-spacing: -0.32em; // makes our grid items have a true width
+		margin: 0;
+		padding: 0;
+	}
+
+	// Every class that has grid__ at the start we want to apply these styles to them
+	[class*='grid__'] {
+		display: block;
+		letter-spacing: normal;
+		list-style: none;
+		margin: 1em 0;
+		padding: 0;
+		//text-align: center;
+		vertical-align: top;
+		width: 100%; // default all our classes that have grid__ will be 100% for our mobile
+
+		@include bp(tablet) {
+			display: inline-block;
+			//float: left;
+			margin: 1em 0;
+			padding: 0 1em;
+		}
+	}
+
+	@include bp(desktop) {
+		// Grid half
+		.grid__half {
+			width: 50%;
+		}
+
+		// THIRDS
+		// Grid third
+		.grid__third {
+			width: 33.33333%;
+		}
+
+		// Grid two third
+		.grid__two-third {
+			width: 66.66666%;
+		}
+
+		// QUARTERS
+		// Grid quarter
+		.grid__quarter {
+			width: 25%;
+		}
+
+		// Grid three quarter
+		.grid__three-quarter {
+			width: 75%;
+		}
+
+		// FIFTHS
+		// Grid fifths
+		.grid__fifth {
+			width: 20%;
+		}
+
+		// Grid two fifths
+		.grid__two-fifth {
+			width: 40%;
+		}
+
+		// Grid three fifths
+		.grid__three-fifth {
+			width: 60%;
+		}
+
+		// Grid four fifths
+		.grid__four-fifth {
+			width: 80%;
+		}
+	}
+}

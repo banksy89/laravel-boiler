@@ -2,6 +2,10 @@
 
 class Helpers 
 {
+	public static function clean_table( $string ) {
+	    return ucwords( str_replace( '_', ' ', $string ) );
+	}
+
 	public static function friendly_url($string)
 	{
 	    $string = preg_replace( "`\[.*\]`U", "", $string );

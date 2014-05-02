@@ -1,0 +1,264 @@
+/*
+
+BUTTONS
+-------
+
+	<button class="btn">Button</button>
+
+*/
+
+.btn {
+	background: #DEDEDD;
+	border: none;
+	border-bottom: 3px solid darken(#DEDEDD, 10%);
+	color: #FFF;
+	cursor: pointer;
+	display: inline-block;
+	font-family: $base-font-family;
+	font-size: 14px;
+	font-weight: normal;
+	height: 32px;
+	line-height: 30px;
+	margin: 0;
+	padding: 0 1em;
+	text-align: center;
+	text-decoration: none;
+
+	@include transition;
+
+	@include border-radius(0.3125em);
+	//@include box-shadow(1px 2px 1px #DEDEDD);
+	-webkit-appearance: none;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+@-moz-document url-prefix() {
+	.btn {
+		line-height: 31px;
+	}
+}
+
+/* 
+
+Save button 
+
+	<button class="btn btn--save">Save</button>
+
+*/
+
+.btn--save {
+	background: $save-btn-colour;
+	border-bottom: 3px solid darken($save-btn-colour, 10%);
+
+	&:hover {
+		background: darken($save-btn-colour, 10%);
+	}
+}
+
+/*
+
+Confirm button
+
+	<button class="btn btn--confirm">Confirm</button>
+
+*/
+
+.btn--confirm {
+	background: $confirm-btn-colour;
+	border-bottom: 3px solid darken($confirm-btn-colour, 10%);
+
+	&:hover {
+		background: darken($confirm-btn-colour, 10%);
+	}
+}
+
+/*
+
+Delete button
+
+	<button class="btn btn--delete">Delete</button>
+
+*/
+
+.btn--delete {
+	background: $delete-btn-colour;
+	border-bottom: 3px solid darken($delete-btn-colour, 10%);
+
+	&:hover {
+		background: darken($delete-btn-colour, 10%);
+	}
+}
+
+/*
+
+Upload button
+
+	<button class="btn btn--upload">Upload</button>
+
+*/
+
+.btn--upload {
+	background: $upload-btn-colour;
+	border-bottom: 3px solid darken($upload-btn-colour, 10%);
+
+	&:hover {
+		background: darken($upload-btn-colour, 5%);
+	}
+}
+
+/*
+
+Add button
+
+	<button class="btn btn--add"><i class="fa fa-plus"></i> Add</button>
+
+*/
+.btn--add {
+	background: $add-btn-colour;
+	border-bottom: 3px solid darken($add-btn-colour, 10%);
+
+	&:hover {
+		background: darken($add-btn-colour, 10%);
+	}
+
+	i {
+		margin-right: 0.25em;
+	}
+}
+
+/*
+
+Search button
+
+	<button class="btn btn--search"><i class="fa fa-search"></i> Search</button>
+
+*/
+.btn--search {
+	background: $search-btn-colour;
+	border-bottom: 3px solid darken($search-btn-colour, 10%);
+
+	&:hover {
+		background: darken($search-btn-colour, 10%);
+	}
+
+	i {
+		margin-right: 0.25em;
+	}
+}
+
+/*
+
+Filter button
+
+	<button class="btn btn--filter"><i class="fa fa-filter"></i> Filter</button>
+
+*/
+.btn--filter {
+	background: #DEDEDD;
+	border-bottom: 3px solid darken(#DEDEDD, 10%);
+	color: $filter-btn-colour;
+
+	&:hover,
+	&.active {
+		background: darken(#DEDEDD, 10%);
+	}
+
+	i {
+		margin-right: 0.25em;
+	}
+}
+
+/*
+
+Previous / next button
+
+	<input type="submit" value="Previous" class="btns btn--prev" />
+	<input type="submit" value="Next" class="btns btn--next" />
+
+*/
+
+.btn--prev,
+.btn--next {
+	background: $save-btn-colour;
+	border-bottom: 3px solid darken($save-btn-colour, 10%);
+	margin: 1em 0;
+	min-width: 83px;
+
+	&:hover {
+		background: darken($save-btn-colour, 10%);
+	}
+}
+
+.btn--prev {
+	float: left;
+}
+
+.btn--next {
+	float: right;
+}
+
+/*
+
+Awaiting button
+
+	<input type="submit" value="Awaiting action" class="btns btn--awaiting" />
+
+*/
+
+.btn--awaiting {
+	background: $awaiting-btn-colour;
+	border-bottom: 3px solid darken($awaiting-btn-colour, 10%);
+
+	&:hover {
+		background: darken($awaiting-btn-colour, 10%);
+	}
+}
+
+.btn-actions {
+	.btn {
+		display: block;
+
+		@include bp(tablet) {
+			display: inline-block;
+		}
+	}
+
+	.btn--action-save {
+		@include bp(tablet) {
+			display: block;
+			margin-top: 1em;
+		}
+	}
+}
+
+/*
+
+Cropper button
+
+*/
+
+.btn--crop {
+	background: $header-colour;
+	border-bottom: 3px solid darken($header-colour, 10%);
+
+	&:hover {
+		background: darken($header-colour, 10%);
+	}
+}
+
+/*
+
+Fake Uploader button
+
+*/
+
+.uploadify {
+	@extend .btn;
+	@extend .btn--upload;
+	height: auto !important;
+	margin: 0.5em 0 !important;
+	width: auto !important;
+}

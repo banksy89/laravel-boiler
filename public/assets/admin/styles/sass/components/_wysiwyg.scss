@@ -1,0 +1,231 @@
+.wysiwyg__toolbar {
+    width: 100%;
+
+    @include bp(desktop) {
+        display: inline-block;
+        width: auto;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 8px 0;
+
+        li {
+            color: $base-font-colour;
+            cursor: pointer;
+            display: inline-block;
+            height: 25px;
+            line-height: 25px;
+            position: relative;
+            text-align: center;
+            vertical-align: middle;
+            width: 25px;
+        }
+
+        .wysihtml5-command-active,
+        .wysihtml5-command-dialog-opened {
+            background-color: #CCC !important;
+
+            @include border-radius(0.25em);
+        }
+
+        [data-wysihtml5-command="bold"] {
+            font-weight: bold;
+        }
+
+        [data-wysihtml5-command="italic"] {
+            font-style: italic;
+        }
+    }
+
+    .wysiwyg__link {
+        border-top: 2px solid #DEDEDD;
+        padding-bottom: 1em;
+
+        @include bp(tablet) {
+            background: lighten(#DEDEDD, 10%);
+            margin-bottom: 0.5em;
+            padding: 1em;
+        }
+
+        label {
+            vertical-align: middle;
+            width: auto; 
+        }
+
+        .input-small {
+            @include bp(tablet) {
+                margin-right: 1em;
+            }
+
+            @include bp(desktop) {
+                width: 33.333%;
+            }
+        }
+
+        .btn {
+            margin-top: 0.5em;
+            vertical-align: middle;
+
+            @include bp(desktop) {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.wysihtml5-sandbox {
+    height: 300px !important;
+    width: 100%;
+
+    @include bp(tablet) {
+        display: block !important;
+        max-width: 500px !important;
+    }
+
+    @include bp(desktop) {
+        margin-left: 119px !important;
+    }
+}
+
+.wysihtml5-editor {
+    p {
+        margin: 0.5em 0 !important;
+    }
+}
+
+// wysiwyg textarea styles
+.wysiwyg-font-size-smaller {
+    font-size: smaller;
+}
+
+.wysiwyg-font-size-larger {
+    font-size: larger;
+}
+
+.wysiwyg-font-size-xx-large {
+    font-size: xx-large;
+}
+
+.wysiwyg-font-size-x-large {
+    font-size: x-large;
+}
+
+.wysiwyg-font-size-large {
+    font-size: large;
+}
+
+.wysiwyg-font-size-medium {
+    font-size: medium;
+}
+
+.wysiwyg-font-size-small {
+    font-size: small;
+}
+
+.wysiwyg-font-size-x-small {
+    font-size: x-small;
+}
+
+.wysiwyg-font-size-xx-small {
+    font-size: xx-small;
+}
+
+.wysiwyg-color-black {
+    color: black;
+}
+
+.wysiwyg-color-silver {
+    color: silver;
+}
+
+.wysiwyg-color-gray {
+    color: gray;
+}
+
+.wysiwyg-color-white {
+    color: white;
+}
+
+.wysiwyg-color-maroon {
+    color: maroon;
+}
+
+.wysiwyg-color-red {
+    color: red;
+}
+
+.wysiwyg-color-purple {
+    color: purple;
+}
+
+.wysiwyg-color-fuchsia {
+    color: fuchsia;
+}
+
+.wysiwyg-color-green {
+    color: green;
+}
+
+.wysiwyg-color-lime {
+    color: lime;
+}
+
+.wysiwyg-color-olive {
+    color: olive;
+}
+
+.wysiwyg-color-yellow {
+    color: yellow;
+}
+
+.wysiwyg-color-navy {
+    color: navy;
+}
+
+.wysiwyg-color-blue {
+    color: blue;
+}
+
+.wysiwyg-color-teal {
+    color: teal;
+}
+
+.wysiwyg-color-aqua {
+    color: aqua;
+}
+
+.wysiwyg-text-align-right {
+    text-align: right;
+}
+
+.wysiwyg-text-align-center {
+    text-align: center;
+}
+
+.wysiwyg-text-align-left {
+    text-align: left;
+}
+
+.wysiwyg-text-align-justify {
+    text-align: justify;
+}
+
+.wysiwyg-float-left {
+    float: left;
+    margin: 0 8px 8px 0;
+}
+
+.wysiwyg-float-right {
+    float: right;
+    margin: 0 0 8px 8px;
+}
+
+.wysiwyg-clear-right {
+    clear: right;
+}
+
+.wysiwyg-clear-left {
+    clear: left;
+}

@@ -1,0 +1,64 @@
+/*
+Syntax error: Undefined variable: "$header-colour".
+        on line 14 of assets/styles/sass/elements/widgets.scss
+
+9: 	letter-spacing: -0.32em;
+10: 	text-align: center;
+11: }
+12: 
+13: .widgets-dashboard {
+14: 	background: $header-colour;
+15: 	border-bottom: 3px solid darken($header-colour, 10%);
+16: 	display: inline-block;
+17: 	letter-spacing: normal;
+18: 	margin: 0.5em 0;
+19: 	padding: 1em;
+
+Backtrace:
+assets/styles/sass/elements/widgets.scss:14
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/variable.rb:49:in `_perform'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/script/node.rb:40:in `perform'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:298:in `visit_prop'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/tree/root_node.rb:20:in `render'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/engine.rb:315:in `_render'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/engine.rb:262:in `render'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/plugin/compiler.rb:341:in `update_stylesheet'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/lib/sass/plugin/compiler.rb:299:in `block in watch'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/vendor/listen/lib/listen/multi_listener.rb:108:in `call'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/vendor/listen/lib/listen/multi_listener.rb:108:in `on_change'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/vendor/listen/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/vendor/listen/lib/listen/adapter.rb:198:in `call'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/vendor/listen/lib/listen/adapter.rb:198:in `report_changes'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/vendor/listen/lib/listen/adapter.rb:210:in `poll_changed_dirs'
+/Users/stormcreative/.rvm/gems/ruby-2.0.0-p0/gems/sass-3.2.8/vendor/listen/lib/listen/adapters/darwin.rb:38:in `block in start'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$header-colour\".\A         on line 14 of assets/styles/sass/elements/widgets.scss\A \A 9: 	letter-spacing: -0.32em;\A 10: 	text-align: center;\A 11: }\A 12: \A 13: .widgets-dashboard {\A 14: 	background: $header-colour;\A 15: 	border-bottom: 3px solid darken($header-colour, 10%);\A 16: 	display: inline-block;\A 17: 	letter-spacing: normal;\A 18: 	margin: 0.5em 0;\A 19: 	padding: 1em;"; }

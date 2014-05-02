@@ -1,0 +1,105 @@
+/*
+
+TIMELINE
+--------
+
+*/
+
+.timeline {
+	letter-spacing: -0.32em;
+	list-style: none;
+	padding: 0;
+	text-align: center;
+}
+
+.timeline__step {
+	background: $stage-bg-colour;
+	border: 2px solid $stage-bg-colour;
+	color: darken($stage-bg-colour, 20%);
+	cursor: pointer;
+	display: inline-block;
+	//height: 44px;
+	letter-spacing: normal;
+	//line-height: 40px;
+	margin: 0 0.5em;
+	position: relative;
+	//width: 44px;
+	height: 88px;
+	line-height: 84px;
+	width: 88px;
+	z-index: 2;
+
+	@include border-radius(50%);
+
+	@include bp(tablet) {
+		height: 88px;
+		line-height: 84px;
+		margin: 0 1em;
+		width: 88px;
+	}
+
+	&:first-child {
+		&:before {
+			display: none;
+		}
+	}
+	
+	&:before {
+		background: $stage-bg-colour;
+		content: '';
+		height: 2px;
+		left: -30px;
+		position: absolute;
+		top: 50%;
+		width: 28px;
+		z-index: 0;
+	}
+	
+	span {
+		//display: none;
+
+		@include bp(tablet) {
+			display: inline-block;
+		}
+	}
+}
+
+.timeline__step--active,
+.timeline__step--completed,
+.timeline__step--pending,
+.timeline__step--awaiting,
+.timeline__step--approved {
+	color: #FFF;
+	/*
+	&:before {
+		background: $stage-border-colour;
+	}
+	*/
+}
+
+.timeline__step--active,
+.timeline__step--approved {
+	background: lighten($stage-border-colour, 8%);
+	border: 2px solid $stage-border-colour;
+}
+
+.timeline__step--completed {
+	background: lighten($stage-border-colour, 15%);
+	border: 2px solid lighten($stage-border-colour, 7%);
+
+	&:hover,
+	&:focus {
+		background: lighten($stage-border-colour, 8%);
+		border: 2px solid $stage-border-colour;
+	}
+}
+
+.timeline__step--pending {
+	background: lighten($pending-border-colour, 5%);
+	border: 2px solid $pending-border-colour;
+}
+
+.timeline__step--awaiting {
+	background: lighten($awaiting-border-colour, 5%);
+	border: 2px solid $awaiting-border-colour;
+}

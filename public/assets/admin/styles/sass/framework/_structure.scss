@@ -1,0 +1,114 @@
+/*
+
+STRUCTURE
+---------
+
+*/
+
+// Config settings and variables
+@import "config/settings";
+@import "config/variables";
+
+// Fonts
+@import "fonts/font-awesome";
+
+// Mixins
+@import "mixins/hacks";
+@import "mixins/img-replace";
+@import "mixins/media-queries";
+@import "mixins/opacity";
+@import "mixins/prefixes";
+@import "mixins/retina";
+@import "mixins/sprite";
+
+// Framework
+@import "framework/grid";
+
+// Elements
+@import "elements/alerts";
+@import "elements/breadcrumb";
+@import "elements/buttons";
+@import "elements/error-msg";
+@import "elements/filter";
+@import "elements/forms";
+@import "elements/key";
+@import "elements/pagination";
+@import "elements/overlay";
+@import "elements/table";
+@import "elements/tabs";
+@import "elements/timeline";
+@import "elements/widgets";
+
+// Components
+@import "components/cropper";
+@import "components/header";
+@import "components/navigation";
+@import "components/image-uploader";
+@import "components/island";
+@import "components/wysiwyg";
+@import "components/login";
+@import "components/product-order";
+
+* {
+	@include box-sizing(border-box);
+}
+
+html {
+	@if $apply-site-width == true {
+		@include bp(desktop) {
+			background: #FAFAFA;
+		}
+	}
+}
+
+body {
+	color: $base-font-colour;
+	font: #{($base-font-size / 16px) * 1em} / #{$line-height-ratio} $base-font-family;
+	margin: 0;
+
+	-webkit-text-size-adjust: none; // stops the text from becoming bigger on orientation on iPhone / iPad devices
+	  //-webkit-font-smoothing: antialiased; // makes the font smooth on webkit devices
+
+	@if $apply-site-width == true {
+		@include bp(tablet) {
+			position: relative;
+		}
+
+		@include bp(desktop) {
+			margin: auto;
+			max-width: $base-width;
+		}
+	}
+}
+
+.wrapper {
+	@include bp(desktop) {
+		height: 100%;
+		letter-spacing: -0.32em;
+		overflow: hidden;
+	}
+}
+
+.container {
+	@include bp(tablet) {
+		//margin-left: 58px;
+	}
+}
+
+.content {
+	background: #FFF;
+	//letter-spacing: normal;
+	padding: 1em;
+	width: 100%;
+
+	@include bp(tablet) {
+		margin-top: $header-height;
+		padding-top: 0;
+	}
+
+	@include bp(desktop) {
+		//border-right: 4px solid $header-colour;
+		display: inline-block;
+		vertical-align: top;
+	}
+}

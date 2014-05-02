@@ -1,0 +1,87 @@
+/*
+
+CONFIG = STYLES VARIABLES
+-------------------------
+
+*/
+
+//Brand
+$brand-colour: lighten(#58585A, 5%);
+
+// Base
+$base-font-colour: #919191;
+$base-font-family: arial;
+$base-font-size: 14px;
+$line-height-ratio: 1.5;
+
+$base-width: 1400px;
+
+// Grid margin gaps between each column
+$grid-margin: 8px;
+
+// Headers
+$header-colour: lighten(#58585A, 5%); //#E74C3C;
+$header-fixed: true !default;
+$header-height: 77px !default;
+
+// Nav settings
+$nav-actual-colour: lighten(#58585A, 5%);//#34495E;
+$nav-colour: $nav-actual-colour; //#34495E;
+$nav-font-colour: #FFF;
+$nav-fixed: true !default;
+
+// Nav links colours
+$nav-dashboard-bg: lighten(#9A3334, 15%);
+$nav-item1-bg: #27ae60;
+$nav-item2-bg: lighten(#3399FF, 15%);
+$nav-item3-bg: #FF9900;
+$nav-item4-bg: #993366;
+$nav-item5-bg: #8BBC66;
+$nav-item6-bg: lighten($nav-actual-colour, 6%);
+
+// Sub nav
+$subnav-bg-colour: #F2F2F2;
+$subnav-font-colour: #000;
+
+// Containers
+$container-padding: 8px;
+$container-width: 960px !default;
+$wrapper-width: 100% !default;
+
+// Island (Boxes container)
+$is-border-colour: #E1E1E1;
+$is-bxshadow-colour: #DEDEDD;
+$is-title-bg: #FAFAFA; //#34495E;
+$is-title-colour: #919191;
+
+// Buttons
+$save-btn-colour: lighten(#339966, 10%); //lighten(#5C755E, 15%); //#00BA09;
+$confirm-btn-colour: lighten(#339966, 10%); //#27AE60;
+$delete-btn-colour: lighten(#9A3334, 15%); //#E74C3C;
+$upload-btn-colour: lighten(#3399FF, 15%); //#FF9700;
+$search-btn-colour: lighten($nav-actual-colour, 15%);
+$add-btn-colour: lighten(#339966, 10%);
+$filter-btn-colour: lighten($nav-actual-colour, 15%);
+$awaiting-btn-colour: lighten(#FF9900, 15%);
+
+// Tasks
+$completed-task: lighten(#27ae60, 25%); //lighten(#587058, 33%); //#DFF0D8;
+$inprogress-task: lighten(#FF9900, 33%); //#FCF8E3;
+$notcompleted-task: lighten(#9A3334, 33%); //#F2DEDE;
+
+// Alerts
+$info-alert-colour: lighten(#3399FF, 15%);
+$success-alert-colour: #27ae60;
+$warning-alert-colour: lighten(#FF9900, 10%);
+$error-alert-colour: lighten(#9A3334, 15%);
+
+// Timeline stages
+$stage-border-colour: #27ae60;
+$stage-bg-colour: #EAEAEA;
+
+$pending-border-colour: lighten(#9A3334, 15%);
+$awaiting-border-colour: lighten(#FF9900, 10%);
+
+// Errors
+$error-bgcolour: #ED1B24;
+$error-colour: #FFF;

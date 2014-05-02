@@ -1,0 +1,48 @@
+/*
+
+BREADCRUMB
+----------
+
+	<ul class="breadcrumb">
+		<li><a href=""><i class="fa fa-home"></i> Home</a></li>
+		<li><i class="fa fa-angle-right"></i></li>
+		<li><a href="">Page Name</a></li>
+		<li><i class="fa fa-angle-right"></i></li>
+		<li>Edit</li>
+	</ul>
+
+*/
+
+.breadcrumb {
+	border-bottom: 2px solid darken(#DEDEDD, 10%);
+	letter-spacing: -0.32em;
+	list-style: none;
+	margin: 0;
+	padding: 0.5em;
+
+	@include bp(tablet) {
+		padding: 0.5em 0;
+	}
+
+	li {
+		display: inline-block;
+		letter-spacing: normal;
+		margin-right: 0.625em;
+		vertical-align: middle;
+	}
+
+	a {
+		color: $base-font-colour;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: darken($base-font-colour, 20%);
+		}
+	}
+}
+
+.breadcrumb__link--active {
+	color: darken($brand-colour, 10%);
+	text-decoration: underline;
+}

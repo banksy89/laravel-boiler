@@ -22,24 +22,19 @@ class HomeController extends BaseController {
 
 	public function getIndex()
 	{
-		/*
-		$user = User::find(1);
+		//$posts = Post::all();
 
-		$user->email = 'ash@stormcreative.co.uk';
-		$user->password = sha1('password');
-		$output = $user->save();
-		*/
+		$posts = Cache::remember('users', 10, function() {
+			return Post::all();
+		});
 
-		echo (string)isset($_POST);
+		die( print_r ( Cache::get('users')));
 
-		$input = Input::all();
+		$this->addTag('posts', $posts);
 
-		print_r ( $input);
-
-		$this->addStyle('banan');
-		$this->addTag('title', "hello");
-		
 		return $this->render(null, true);
 	}
+
+	
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-class BaseController extends Controller {
+abstract class BaseController extends Controller {
 
 	/**
 	 * Tags to past through to the view
@@ -9,11 +9,13 @@ class BaseController extends Controller {
 	 */
 	private $_tags = array();
 
+    protected $base_path = '';
+
 	public function __Construct()
 	{
 		// Set the script and styles to nothing
 		// Just in case they are not required and don't break the app
-		$this->_tags['stylesheets'] = "";
+		$this->_tags['stylesheets'] = array();
 		$this->_tags['script'] = "";
 
 		$this->addTag('root', Request::root());
@@ -65,7 +67,7 @@ class BaseController extends Controller {
     protected function addStyle($stylesheet, $raw = true)
     {
         $this->_tags['stylesheets'][] = ($raw == true ? 
-        								 Request::root().'/assets/styles/'.$stylesheet.'.css' : 
+        								 Request::root().'/assets/'.$this->base_path.'styles/'.$stylesheet.'.css' : 
         								 $stylesheet);
 
         return $this;
@@ -82,19 +84,31 @@ class BaseController extends Controller {
     protected function render($view="", $blade = false)
     {
     	if ($view == "") {
-    		$url = str_replace(Request::root(), "", Request::url());
-    		$url_segs = explode("/", $url);
-    		$view = $url_segs[0];
-
-    		// If it's empty again after that, it's the homepage
-    		if ($view == '') {
-    			$view = 'home';
-    		}
+    		$view = $this->defaultView();
     	}
 
-        $_view = View::make('base-view', $this->_tags)->nest('view_to_load', $view, $this->_tags);
+        $_view = View::make($this->base_path.'base-view', $this->_tags)->nest('view_to_load', $view, $this->_tags);
 
         return $_view;
+    }
+
+    /**
+     * Determines a view from a subset of the URL
+     * 
+     * @return string
+     */
+    protected function defaultView()
+    {
+        $url = str_replace(Request::root(), "", Request::url());
+        $url_segs = explode("/", $url);
+        $view = $url_segs[0];
+
+        // If it's empty again after that, it's the homepage
+        if ($view == '') {
+            $view = 'home';
+        }
+
+        return $view;
     }
 
 	/**

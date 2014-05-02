@@ -1,0 +1,100 @@
+/*
+
+FILTER
+------
+
+*/
+
+.filter {
+	display: none;
+	letter-spacing: -0.32em;
+	margin: 0;
+	overflow: hidden;
+	padding: 0.5em;
+
+	@include bp(tablet) {
+		background: lighten(#DEDEDD, 10%);
+		border-bottom: 2px solid #DEDEDD;
+		padding: 1em;
+	}
+
+	dt,
+	dd {
+		display: block;
+		letter-spacing: normal;
+		margin: 0;
+		padding: 0;
+
+		@include bp(desktop) {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+
+	dt {
+		@include bp(desktop) {
+			margin-left: 1em;
+
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+
+	dd {
+		margin: 0.5em 0;
+		text-align: center;
+
+		@include bp(desktop) {
+			margin: 0 0 0 0.5em; 
+			text-align: left;
+		}
+
+		@include bp(desktop) {
+			margin-left: 1em;
+		}
+	}
+
+	.search-btn {
+		margin-top: 0.5em;
+
+		@include bp(tablet) {
+			margin: 0;
+			padding: 0 0.375em;
+		}
+
+		@include bp(desktop) {
+			padding: 0 1em;
+		}
+	}
+
+	label {
+		@include bp(tablet) {
+			width: auto;
+		}
+	}
+
+	input[type="text"] {
+		@include bp(desktop) {
+			width: auto;
+		}
+	}
+}
+
+.filter__search {
+	@include bp(tablet) {
+		float: right;
+		margin-left: 0;
+	}
+}
+
+.order-by {
+	color: $base-font-colour;
+	padding-left: 0.5em;
+	text-decoration: none;
+
+	&:before {
+		display: inline-block;
+		margin-right: 4px;
+	}
+}
