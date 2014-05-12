@@ -5,7 +5,9 @@
         "license": "MIT",
         "require": {
                 "laravel/framework": "4.1.*",
-                "ollieread/multiauth": "dev-master"
+                "ollieread/multiauth": "dev-master",
+                "intervention/image": "1.*",
+                "intervention/imagecache": "dev-master"
         },
         "autoload": {
                 "classmap": [

@@ -1,5 +1,7 @@
 <?php
 
+use Intervention\Image\Image;
+
 class HomeController extends BaseController {
 
 	/*
@@ -17,16 +19,31 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
+
 		return View::make('hello');
 	}
 
 	public function getIndex()
 	{
-		//$posts = Post::all();
+		// $posts = Post::all();
+
+		$img = Image::make('public/assets/images/image-8.jpg');
+
+		// now you are able to resize the instance
+		$img->resize(800, null, true);
+
+		// and insert a watermark for example
+		//$img->insert('public/watermark.png');
+
+		// finally we save the image as a new image
+		$img->save('public/assets/images/image-resize.jpg');
 
 		$posts = Cache::remember('users', 10, function() {
 			return Post::all();
 		});
+
+
+		die('hi');
 
 		die( print_r ( Cache::get('users')));
 

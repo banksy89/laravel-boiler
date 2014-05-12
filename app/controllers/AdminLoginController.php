@@ -14,6 +14,7 @@ class AdminLoginController extends \BaseController {
 
 		} else {
 			$result = array('status' => 500);
+			$result['msg'] = "Your credentials are incorrect";
 		}
 
 		exit (json_encode($result));
@@ -27,21 +28,33 @@ class AdminLoginController extends \BaseController {
 
 		if (Request::ajax()) {
 
-			$password = Helpers::random_string(8);
+			$new_password = Helpers::random_string(8);
+
+			$password = Hash::make($new_password);
 
 			$username = Input::get('username');
 
 			$result = DB::table('access')->where('email', $username)->update(array('password' => $password));
 
 			if ($result) {
-				Mail::send('emails/admin/forgotten-password', array('password' => $password), function($message)
+
+				Mail::send('emails/admin/forgotten-password', array('password' => $new_password), function($message)
 				{
-				    $message->to('ash@stormcreative.co.uk', 'CMS User')->subject('CMS New password request');
+				    $message->to('ash@stormcreative.co.uk', 'CMS User')
+				    		->from('no-reply@stormcreative.co.uk')
+				    		->subject('CMS New password request');
 				});
-			} 
+
+				$response['status'] = 200;
+				$response['msg'] = "Password has been sent to your email";
+				
+			} else {
+				$response['msg'] = "Username not found in system";
+			}
 
 		}
-		
+
+		exit (json_encode($response));
 	}
 
 }

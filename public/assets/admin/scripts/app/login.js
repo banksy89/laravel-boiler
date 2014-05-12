@@ -50,34 +50,34 @@ require(['../views/Validation', '../views/Helpers', 'jquery'], function(Validati
         });
         
         $.ajax({ url: window.site_path + 'admin/login/'+action,
-                 data: inputs,
-                 type: 'POST',
-                 dataType: 'JSON',
-                 success: function (data) {
-                    
-                    // If the action is successful
-                    if (data.status == 200) {
+             data: inputs,
+             type: 'POST',
+             dataType: 'JSON',
+             success: function (data) {
+                
+                // If the action is successful
+                if (data.status == 200) {
 
-                        if (action == 'login') {
-                            $('#'+formId).submit();
-                        } else {
-                            alertMsg.removeClass('alert--error').addClass('alert--success');
-                            $('.js-alert-msg').html(data.msg);
-                            alertMsg.fadeIn();
-                        }
-
+                    if (action == 'login') {
+                        $('#'+formId).submit();
                     } else {
-
-                        // Otherwise display an error message
-                        if (alertMsg.hasClass('alert--success')) {
-                            alertMsg.removeClass('alert--success').addClass('alert--error');
-                        }
-
+                        alertMsg.removeClass('alert--error').addClass('alert--success');
                         $('.js-alert-msg').html(data.msg);
-
                         alertMsg.fadeIn();
                     }
+
+                } else {
+
+                    // Otherwise display an error message
+                    if (alertMsg.hasClass('alert--success')) {
+                        alertMsg.removeClass('alert--success').addClass('alert--error');
+                    }
+
+                    $('.js-alert-msg').html(data.msg);
+
+                    alertMsg.fadeIn();
                 }
+            }
         });
 
         e.preventDefault();
