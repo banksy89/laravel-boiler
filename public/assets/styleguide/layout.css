@@ -1,0 +1,9 @@
+body{background:#FFF !important;font-family:Helvetica}a{text-decoration:none}.wrapper{background:#FFF!important;width:90%;overflow:hidden}.header{margin-left:0.8em}.aside{width:20%;float:left;border:1px solid #ddd;margin-left:1.6em;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.aside ul,.aside li{margin:0}.aside ul{list-style-type:none;padding:0}.aside ul li{cursor:pointer;margin-left:0.8em;border-bottom:1px solid #eee;font-size:14px;overflow:hidden;display:block}.aside ul li a{color:#666}.aside ul li:last-child{border:none}.aside ul li:hover{background:#fdfdfd}.aside ul li:hover a{color:black}
+
+pre{background:#edf6f8 !important;margin-bottom:0;border-top:1px solid #eee; overflow: auto;}
+
+code{background:#edf6f8 !important}.contents{width:75%;float:right;border:1px solid #ccc;box-shadow:0 0 5px rgba(0,0,0,0.1);-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.contents__start{background:#f1f1f1;height:80px;overflow:hidden}.contents__header{margin-left:0.6em}.contents-item{border-top:1px solid #ccc}.styleguide-element{overflow:hidden;padding:0 1em;position:relative;}.styleguide-element__elem{display:block;margin-top:1em}.styleguide-element__class{border:1px solid red;color:#999;background:#f9f9f9;border:1px solid #eee;padding:5px 15px;border-top:none;font-size:14px;position:absolute;right:0;top:0;z-index:99999;}
+.styleguide-element__title {
+	margin-left: 16px;
+	color: #666;
+}

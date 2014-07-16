@@ -2,115 +2,57 @@
 
 class Helpers 
 {
-	public static function clean_table( $string ) {
-	    return ucwords( str_replace( '_', ' ', $string ) );
+	public static function checkRemoteFileExists($file)
+	{
+		$ch = curl_init($file);
+
+		curl_setopt($ch, CURLOPT_NOBODY, true);
+		curl_exec($ch);
+
+		$retcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+		curl_close($ch);
+
+		return $retcode;
 	}
 
-	public static function friendly_url($string)
+	public static function priceFormat($price)
 	{
-	    $string = preg_replace( "`\[.*\]`U", "", $string );
-	    $string = preg_replace( '`&(amp;)?#?[a-z0-9]+;`i', '-', $string );
-	    $string = htmlentities( $string, ENT_COMPAT, 'utf-8' );
-	    $string = preg_replace( "`&([a-z])(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig|quot|rsquo);`i", "\\1", $string );
-	    $string = preg_replace( array( "`[^a-z0-9]`i","`[-]+`") , "-", $string );
-
-	    return strtolower( trim( $string, '-' ) );
+		return number_format($price, 2, '.', '');
 	}
 
-	public static function download($filename, $title = "", $location = 'admin/assets/uploads/documents')
+	public static function getQueryString()
 	{
-	    if ( !$filename )
-	        die ( 'must provide a file to download!' );
-	    else {
-	        $path =  PATH . $location . '/' . $filename;
+		$url = Request::fullUrl();
+		$url = explode('?', $url);
 
-	        $ext = pathinfo ( $filename, PATHINFO_EXTENSION );
-
-	        if ( file_exists( $path ) ) {
-
-	            $size = filesize( $path );
-	            header( 'Content-Type: application/octet-stream' );
-	            //header( 'Content-Length: ' . $size );
-	            header( 'Content-Disposition: attachment; filename=' . $title . '.' . $ext );
-	            header( 'Content-Transfer-Encoding: binary' );
-
-	            $file = fopen( $path, 'rb' );
-
-	            if ($file) {
-	                fpassthru( $file );
-	                exit;
-	            } else {
-	                echo $err;
-	            }
-	        } else
-	            die ( 'Appears to be a problem with downloading that file.' );
-	    }
+		if (isset($url[1])) {
+			return $url[1];
+		} 
 	}
 
-	/**
-	 * This public static function is used by the work zone section to get the document type from the document name in a multidimensional array,
-	 * then add it to the multidimensional array and return the array
-	 *
-	 * @param array ( multi-dimensional ) $array
-	 * @param string $file_key
-	 *
-	 * @return array ( multi-dimensional )
-	 */
-	public static function get_file_type($array, $file_key)
+	public static function days_till_date($date)
 	{
+		$date = date('d-m-Y', strtotime($date));
 
-	    $i = 0;
-	    foreach ($array as $value) {
-	        $sections = explode ( '.', $value[ $file_key ] );
+		$datetime1 = new DateTime($date);
+		$datetime2 = new DateTime('now');
+		$interval = $datetime1->diff($datetime2);
 
-	        switch ($sections[ 1 ]) {
-	            case ( 'doc' ) :
-	                $array[ $i ][ 'div' ] = 'word';
-	            break;
-
-	            case ( 'docx' ) :
-	                $array[ $i ][ 'div' ] = 'word';
-	            break;
-
-	            case ( 'ppt' ) :
-	                $array[ $i ][ 'div' ] = 'powerpoint';
-	            break;
-
-	            case ( 'pptx' ) :
-	                $array[ $i ][ 'div' ] = 'powerpoint';
-	            break;
-
-	            case ( 'xlsx' ) :
-	                $array[ $i ][ 'div' ] = 'excel';
-	            break;
-
-	            case ( 'xls' ) :
-	                $array[ $i ][ 'div' ] = 'excel';
-	            break;
-
-	            case ( 'pdf' ) :
-	                $array[ $i ][ 'div' ] = 'pdf';
-	            break;
-	        }
-
-	        $i++;
-	    }
-
-	    return $array;
+		return $interval->format('%d');
 	}
 
-	public static function word_limiter($str, $limit = 100, $end_char = '&#8230;')
+	public static function last_query()
 	{
-	    if ( trim( $str ) == '' )
-	        return $str;
+		$queries = \DB::getQueryLog();
+		$last_query = end($queries);
 
-	    preg_match( '/^\s*+(?:\S++\s*+){1,' . (int) $limit .'}/', $str, $matches );
+		die(print_r($last_query));
+	}
 
-	    if ( strlen( $str ) == strlen( $matches[0] ) )
-	        $end_char = '';
-
-	    //return rtrim ( $matches[0] ) . $end_char;
-	    return strip_tags( rtrim ( $matches[0] ) . $end_char );
+	public static function array_filter_duplicates($data)
+	{
+		return $data = array_map("unserialize", array_unique(array_map("serialize", $data)));
 	}
 
 	/**
@@ -135,6 +77,7 @@ class Helpers
 
 	    return $string;
 	}
+
 }
 
 ?>

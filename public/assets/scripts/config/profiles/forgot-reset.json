@@ -1,0 +1,5 @@
+{
+	"email-forgot"   : { "rules" : "empty,email" },
+	"password-forgot"      : { "rules" : "empty" },
+	"confirm-password"   : { "rules" : "empty,match" }
+}

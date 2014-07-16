@@ -1,0 +1,15 @@
+/**
+
+	EXTEND - IMAGE REPLACE
+	¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+	This is used for elements that require a background image and hide the text,
+	but still be readable for google bots and SEO purposes.
+
+----------------------------------------------------------------------------------*/
+
+%img-replace {
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+}

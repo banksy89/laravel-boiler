@@ -1,0 +1,9 @@
+{
+	"title"      : { "rules" : "empty" },
+	"forename"   : { "rules" : "empty" },
+	"surname"    : { "rules" : "empty" },
+	"postcode"   : { "rules" : "empty" },
+	"address"    : { "rules" : "empty" },
+	"town"  	 : { "rules" : "empty" },
+	"county"  	 : { "rules" : "empty" }
+}

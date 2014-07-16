@@ -1,0 +1,3 @@
+{
+	"reminder-email"      : { "rules" : "empty,email" }
+}

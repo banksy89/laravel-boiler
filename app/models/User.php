@@ -3,11 +3,11 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends Eloquent implements RemindableInterface, UserInterface {
 
 	protected $guarded = array('id');
 
-	protected $fillable = array('email', 'password');
+	protected $fillable = array('email', 'password', 'customer_id');
 
 	/**
 	 * The database table used by the model.
@@ -22,11 +22,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var array
 	 */
 	protected $hidden = array('password');
-
-	public function posts()
-	{
-		return $this->hasMany('Post', 'users_id');
-	}
 
 	/**
 	 * Get the unique identifier for the user.
@@ -61,6 +56,21 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function setPasswordAttribute($pass)
 	{
 		$this->attributes['password'] = Hash::make($pass);
+	}
+
+	public function getRememberToken()
+	{
+	    return $this->remember_token;
+	}
+
+	public function setRememberToken($value)
+	{
+	    $this->remember_token = $value;
+	}
+
+	public function getRememberTokenName()
+	{
+	    return 'remember_token';
 	}
 
 }

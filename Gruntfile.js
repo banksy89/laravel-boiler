@@ -109,26 +109,40 @@ module.exports = function(grunt) {
         dest: 'assets/styles/',
         ext: '.css'
       }
+    },
+
+    jasmine : {
+        src : 'assets/scripts/app/*.js',
+        options : {
+            specs : 'assets/scripts/tests/*.js',
+            template: require('grunt-template-jasmine-requirejs')
+        }
     }
 
   });
-  
-  // Load the plugin that provides the defined grunt tasks
-  grunt.loadNpmTasks('grunt-php-cs-fixer');
 
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-
-  grunt.loadNpmTasks('grunt-contrib-sass');
-
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  /**
+   * Instead of listing out each dependency we can
+   * read the dependency list from our packages.json
+   * file and list them dynamically.
+   */
+  for( var key in grunt.file.readJSON( 'package.json' ).devDependencies ) {
+      if( key !== 'grunt' && key.indexOf( 'grunt' ) === 0 ) {
+          grunt.loadNpmTasks( key );
+      } 
+  }
 
   // Default task(s).
   grunt.registerTask('default', ['uglify', 'sass', 'imagemin']);
-
   // Compile Sass files and then compress and minify them
   grunt.registerTask('sassmin', ['sass', 'cssmin']);
+  //Jasmine unit tests
+  grunt.registerTask('test', [ 'jasmine' ] );
+
+  grunt.registerTask('load_sitemap_json', function() {
+      var sitemap_urls = grunt.file.readJSON('sitemap.json');
+      grunt.config.set('uncss.dist.options.urls', sitemap_urls);
+  });
 
 };
 

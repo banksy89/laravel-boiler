@@ -1,0 +1,1 @@
+/Users/macintosh/Dropbox/Sites/choice/app/views/styleguider/linksbanner.blade.php

@@ -1,0 +1,5 @@
+{
+	"original-password"   : { "rules" : "empty,passwordMatch" },
+	"password-account"      : { "rules" : "empty,passwordDoesMatch" },
+	"confirm-password"   : { "rules" : "empty,match" }
+}

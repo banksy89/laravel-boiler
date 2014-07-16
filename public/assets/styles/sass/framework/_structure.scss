@@ -1,0 +1,90 @@
+/**
+
+	STRUCTURE 
+	¯¯¯¯¯¯¯¯¯
+	The structure stylesheet is used to import all of our stylesheet extensions in one main framework 
+	component. This file also holds body and HTML styles aswell as wrappers, containers and elements 
+	main styles. This file is then imported into our main css files.
+
+----------------------------------------------------------------------------------------------------------*/
+
+/**
+	Fonts
+------------*/
+@import "fonts/fonts"; // font-face fonts
+
+/**
+	Config settings and variables
+-----------------------------------*/
+@import "config/settings"; // Setup settings
+@import "config/variables"; // Site variables
+
+/**
+	Animations
+---------------*/
+@import "animations/keyframes"; // List of animations with class names to add
+
+/**
+	Mixins -> Includes
+------------------------*/
+@import "mixins/hacks"; // Browser hacks for webkit and firefox
+@import "mixins/media-queries"; // Media queries
+@import "mixins/opacity"; // Opacity - includes IE
+@import "mixins/prefixes"; // Browser prefixes - border-radius, transitions, box-shadow etc.
+@import "mixins/retina"; // Retina screens
+@import "mixins/sprite"; // Sprite
+
+/**
+	Grid
+-----------*/
+@import "framework/grid";
+
+/**
+	Elements
+--------------*/
+
+
+/**
+	Components
+----------------*/
+
+* {
+	@include box-sizing(border-box);
+}
+
+body {
+	//background: $body-bg;
+	font: #{($base-font-size / 16px) * 1em} / #{$line-height-ratio} $base-font-family;
+	margin: 0;
+
+	-webkit-text-size-adjust: none; // stops the text from becoming bigger on orientation on iPhone / iPad devices
+	  -webkit-font-smoothing: antialiased; // makes the font smooth on webkit devices
+}
+
+.wrapper {
+	background: $body-bg;
+	letter-spacing: normal;
+	max-width: $wrapper-width;
+	overflow: hidden;
+	position: relative;
+
+	@if ($MQs) == false {
+		min-width: 1200px; // when we are doing a desktop build need to include our min-width as 60em! This is the default that devices read, any bigger then will have to scroll
+	}
+}
+
+.wrapper--alt {
+	background: #FFF;
+}
+
+/**
+	CONTAINERS
+----------------*/
+.container {
+	margin: auto;
+	width: $container-width;
+}
+
+img {
+	border: none;
+}

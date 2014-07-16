@@ -4,10 +4,14 @@
         "keywords": ["framework", "laravel"],
         "license": "MIT",
         "require": {
+                "phpunit/phpunit": "3.7.*",
                 "laravel/framework": "4.1.*",
                 "ollieread/multiauth": "dev-master",
-                "intervention/image": "1.*",
-                "intervention/imagecache": "dev-master"
+                "intervention/image": "2.*",
+                "intervention/imagecache": "dev-master",
+                "way/generators": "2.*",
+                "fzaninotto/faker": "v1.3.0",
+                "mockery/mockery": "dev-master"
         },
         "autoload": {
                 "classmap": [
@@ -16,8 +20,12 @@
                         "app/models",
                         "app/database/migrations",
                         "app/database/seeds",
-                        "app/tests/TestCase.php"
-                ]
+                        "app/tests/TestCase.php",
+                        "app/Choice/"
+                ],
+                "psr-0": {
+                        "Choice": "app/Choice"
+                  }
         },
         "scripts": {
                 "post-install-cmd": [

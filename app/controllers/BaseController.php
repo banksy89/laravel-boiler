@@ -7,19 +7,38 @@ abstract class BaseController extends Controller {
 	 * 
 	 * @var array
 	 */
-	private $_tags = array();
+	private $tags = array();
 
     protected $base_path = '';
+
+    protected $model = null;
+
+    protected $plain_view = false;
+
+    protected $image_path;
+
+    protected $basket_valid;
 
 	public function __Construct()
 	{
 		// Set the script and styles to nothing
 		// Just in case they are not required and don't break the app
-		$this->_tags['stylesheets'] = array();
-		$this->_tags['script'] = "";
+		$this->tags['stylesheets'] = array();
+		$this->tags['script'] = "";
 
+        $this->image_path = Request::root().'/assets/admin/uploads/';
+
+        $this->addTag('image_path', $this->image_path);  
 		$this->addTag('root', Request::root());
+        $this->addTag('wrapper_alt', FALSE);
 	}
+
+    protected function plain()
+    {
+        $this->plain_view = true;
+
+        return $this;
+    }
 
 	/**
      * Add a tag to the template tag array
@@ -31,14 +50,14 @@ abstract class BaseController extends Controller {
      */
     protected function addTag($tag, $value = "")
     {
-        if (is_array($tag) && !isset($value)) {
+        if (is_array($tag) && !$value) {
 
             foreach ($tag as $t => $t_v) {
-                $this->_tags[$t] = $t_v;
+                $this->tags[$t] = $t_v;
             }
 
         } else {
-            $this->_tags[$tag] = $value;
+            $this->tags[$tag] = $value;
         }
 
         return $this;
@@ -53,7 +72,7 @@ abstract class BaseController extends Controller {
      */
     protected function setScript($script)
     {
-        $this->_tags['script'] = $script;
+        $this->tags['script'] = $script;
 
         return $this;
     }
@@ -66,10 +85,10 @@ abstract class BaseController extends Controller {
      */
     protected function addStyle($stylesheet, $raw = true)
     {
-        $this->_tags['stylesheets'][] = ($raw == true ? 
+        $this->tags['stylesheets'][] = ($raw == true ? 
         								 Request::root().'/assets/'.$this->base_path.'styles/'.$stylesheet.'.css' : 
         								 $stylesheet);
-
+        
         return $this;
     }
 
@@ -78,7 +97,7 @@ abstract class BaseController extends Controller {
      * Automatically or manually sets the view to load
      * 
      * @param string $view
-     * 
+     *
      * @return view
      */
     protected function render($view="", $blade = false)
@@ -86,8 +105,13 @@ abstract class BaseController extends Controller {
     	if ($view == "") {
     		$view = $this->defaultView();
     	}
-
-        $_view = View::make($this->base_path.'base-view', $this->_tags)->nest('view_to_load', $view, $this->_tags);
+        
+        if ($this->plain_view) {
+            $_view = View::make($this->base_path.$view, $this->tags);
+        } else {
+            $_view = View::make($this->base_path.'base-view', $this->tags)->nest('view_to_load', $view, $this->tags);    
+        }
+        
 
         return $_view;
     }

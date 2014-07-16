@@ -9,8 +9,9 @@ return array(
             'table' => 'access'
         ),
         'user' => array(
-            'driver' => 'database',
-            'table' => 'users'
+            'driver' => 'Eloquent',
+            'table' => 'users',
+            'model' => 'User'
         )
     ),
 
@@ -35,7 +36,7 @@ return array(
 
 		'table' => 'password_reminders',
 
-		'expire' => 60,
+		'expire' => 60
 
 	),
 

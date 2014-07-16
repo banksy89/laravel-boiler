@@ -1,0 +1,69 @@
+/**
+	
+	CONFIG -> STYLE VARIABLES
+	¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+	The main variables used around the site regarding colours, 
+	fonts, base settings and nav settings.
+
+-------------------------------------------------------------------------------------------*/
+
+/**
+	Colours
+-------------*/
+
+
+/**
+	Base
+-----------*/
+$base-font-family: 'open_sansregular';
+$base-font-size: 16px;
+$line-height-ratio: 1.4;
+
+/**
+	Fonts
+-----------*/
+$base-font-bold: 'open_sansbold';
+$base-italic-font: georgia;
+$base-scribble-font: 'desyrelregular';
+
+/**
+	Grid
+-----------*/
+$grid-margin: 8px;
+
+/**
+	Navigation
+----------------*/
+$nav-colour: #ED1B24;
+$subnav-colour: #E8E8E8;
+
+$nav-font-color: #FFF;
+$subnav-font-color: #000;
+
+$nav-fixed: false !default;
+
+$nav-height: 70px !default;
+$subnav-height: 50px !default;
+
+$subnav-toggle: true !default;
+$subnav-hover: false !default;
+
+/**
+	Containers
+----------------*/
+$container-padding: 8px;
+$container-width: 66.4375em !default; // 1063px
+$wrapper-width: 100% !default;
+
+/*
+	Carousel
+----------------*/
+//$carousel: true !default;
+$carousel-mask: true !default;
+
+/**
+	Errors
+-------------*/
+$error-bgcolour: #FDEFEF;
+$error-colour-alt: #EC4944;
+$error-colour: #EB6F66;

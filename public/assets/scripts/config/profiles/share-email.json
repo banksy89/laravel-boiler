@@ -1,0 +1,11 @@
+{
+	"friends-name-1"	  : {"rules" : "empty"},
+	"friends-email-1"      : { "rules" : "empty,email" },
+
+	"friends-name-2"	  : {"rules" : "empty"},
+	"friends-email-2"      : { "rules" : "empty,email" },
+
+	"share-name"	  : {"rules" : "empty"},
+	"share-email"      : { "rules" : "empty,email" }
+	
+}
