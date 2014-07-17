@@ -4,7 +4,7 @@ class HomeController extends BaseController {
 
 	public function index() 
 	{	
-		$hot_picks = ProductPresenter::exampleFunction();
+		$hot_picks = ExamplePresenter::exampleFunction();
 
 		$this->setScript('main');
 		$this->addStyle('layout');
