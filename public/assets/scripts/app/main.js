@@ -12,9 +12,8 @@ requirejs.config({
     }
 });
 
-require(['../views/Validation','../views/Navigation'], function (Validation, Navigation) {
+require(['../views/Example'], function (Example) {
 
-    var validate = new Validation();
+    var example = new Example();
 
-    var Navigation = new Navigation();
 });

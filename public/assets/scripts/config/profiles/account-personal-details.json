@@ -1,7 +1,0 @@
-{
-	"title"      : { "rules" : "empty" },
-	"forename"   : { "rules" : "empty" },
-	"surname"    : { "rules" : "empty" },
-	"telephone"  : { "rules" : "empty,telephone" },
-	"dob"        : { "rules" : "empty" }
-}

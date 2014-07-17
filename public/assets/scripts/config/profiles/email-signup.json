@@ -1,3 +1,0 @@
-{
-	"email-signup-email"      : { "rules" : "empty,email" }
-}

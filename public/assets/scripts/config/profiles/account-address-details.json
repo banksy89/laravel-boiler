@@ -1,6 +1,0 @@
-{
-	"postcode"   : { "rules" : "empty" },
-	"address"  : { "rules" : "empty" },
-	"town"  	 : { "rules" : "empty" },
-	"county"  	 : { "rules" : "empty" }
-}

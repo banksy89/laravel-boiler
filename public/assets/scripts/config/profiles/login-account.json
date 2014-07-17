@@ -1,4 +1,0 @@
-{
-	"login-email"      : { "rules" : "empty" },
-	"login-password"   : { "rules" : "empty" }
-}

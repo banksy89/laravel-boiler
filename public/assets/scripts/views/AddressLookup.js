@@ -8,7 +8,7 @@ define(['Backbone', '../plugins/crafty_postcode.class'], function (Backbone) {
 
             this.cp_obj.set("debug_mode",   "1");
 
-            this.cp_obj.set("access_token", "2f40f-734e4-68a7f-00c2a");
+            this.cp_obj.set("access_token", "");
             this.cp_obj.set("form", 'js-paf-finder');
             this.cp_obj.set("result_elem_id", "crafty_postcode_result_display");
             this.cp_obj.set("elem_postcode" , "full-postcode");
@@ -39,8 +39,6 @@ define(['Backbone', '../plugins/crafty_postcode.class'], function (Backbone) {
         find_address: function (e) {
 
             this.cp_obj.doLookup();
-
-            
 
             e.preventDefault();
 
